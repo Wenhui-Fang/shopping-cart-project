@@ -27,6 +27,11 @@ products = [
 
 print(products)
 
+user_response = input("Please enter an identifier number, or DONE if you are finish.")
+
+print(input)
+
+
 # an infinite loop! you can press control+c to cancel the program if/when it gets stuck...
 while True:
     # capturing user input and storing in a variable
