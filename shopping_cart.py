@@ -31,23 +31,46 @@ products = [
 
 #print(input)
 
-all_user_input = []
+# all_user_input = []
 
-user_input = input("Please input a product identifier, or 'DONE' if there are no more items: ")
-print("YOUR INPUT WAS: " + user_input)
-all_user_input.append(user_input)
+# user_input = input("Please input a product identifier, or 'DONE' if there are no more items: ")
+# print("YOUR INPUT WAS: " + user_input)
+# all_user_input.append(user_input)
 
-# an infinite loop! you can press control+c to cancel the program if/when it gets stuck...
-while user_input != "DONE":
+# # an infinite loop! you can press control+c to cancel the program if/when it gets stuck...
+# while user_input != "DONE":
 
-    # capturing user input and storing in a variable
-    # demonstrating ability to recognize what the input was, although you might also want to check its datatype
-    user_input = input("Please input a product identifier, or 'DONE' if there are no more items: ")
-    print("YOUR INPUT WAS: " + user_input)
-    all_user_input.append(user_input)
+#     # capturing user input and storing in a variable
+#     # demonstrating ability to recognize what the input was, although you might also want to check its datatype
+#     user_input = input("Please input a product identifier, or 'DONE' if there are no more items: ")
+#     print("YOUR INPUT WAS: " + user_input)
+#     all_user_input.append(user_input)
 
-    if user_input == "DONE":
-        break
+#     if user_input == "DONE":
+#         break
 
-print(all_user_input)
+# print(all_user_input)
+
+
+counter = 0
+
+running_total = 0
+
+selected_id = 1
+
+while counter < 5:
+
+    matching_product = [p for p in products if p["id"] == selected_id]
+
+    product = matching_product[0]
+    price = product["price"]
+
+    price = running_total + price
+    counter = counter + 1
+
+print(price)
+
+# calculate tax, add tax + total 
+
+
 
