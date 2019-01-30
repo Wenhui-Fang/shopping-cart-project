@@ -25,16 +25,29 @@ products = [
 
 # TODO: write some Python code here to produce the desired functionality...
 
-print(products)
+#print(products)
 
-user_response = input("Please enter an identifier number, or DONE if you are finish.")
+#user_input = input("Please enter an identifier number, or DONE if you are finish.")
 
-print(input)
+#print(input)
 
+all_user_input = []
+
+user_input = input("Please input a product identifier, or 'DONE' if there are no more items: ")
+print("YOUR INPUT WAS: " + user_input)
+all_user_input.append(user_input)
 
 # an infinite loop! you can press control+c to cancel the program if/when it gets stuck...
-while True:
+while user_input != "DONE":
+
     # capturing user input and storing in a variable
-    user_input = input("Please input a product identifier, or 'DONE' if there are no more items: ")
     # demonstrating ability to recognize what the input was, although you might also want to check its datatype
+    user_input = input("Please input a product identifier, or 'DONE' if there are no more items: ")
     print("YOUR INPUT WAS: " + user_input)
+    all_user_input.append(user_input)
+
+    if user_input == "DONE":
+        break
+
+print(all_user_input)
+
