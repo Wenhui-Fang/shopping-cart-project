@@ -1,5 +1,7 @@
 # shopping_cart.py
 
+import datetime 
+
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -25,50 +27,92 @@ products = [
 
 # TODO: write some Python code here to produce the desired functionality...
 
-#print(products)
+# print(products)
 
-#user_input = input("Please enter an identifier number, or DONE if you are finish.")
+# user_input = input("Please enter an identifier number, or DONE if you finish.")
 
-#print(input)
+# print(input)
 
-# all_user_input = []
-
+all_user_input = []
+user_input = 0
+number_of_items = 0
 # user_input = input("Please input a product identifier, or 'DONE' if there are no more items: ")
 # print("YOUR INPUT WAS: " + user_input)
 # all_user_input.append(user_input)
 
-# # an infinite loop! you can press control+c to cancel the program if/when it gets stuck...
-# while user_input != "DONE":
+# an infinite loop! you can press control+c to cancel the program if/when it gets stuck...
+while user_input != "DONE":
 
-#     # capturing user input and storing in a variable
-#     # demonstrating ability to recognize what the input was, although you might also want to check its datatype
-#     user_input = input("Please input a product identifier, or 'DONE' if there are no more items: ")
-#     print("YOUR INPUT WAS: " + user_input)
-#     all_user_input.append(user_input)
+    # capturing user input and storing in a variable
+    # demonstrating ability to recognize what the input was, although you might also want to check its datatype
+    user_input = input("Please input a product identifier, or 'DONE' if there are no more items: ")
+    print("YOUR INPUT WAS: " + user_input)
+    
+    if user_input == "DONE":
+        break
+    
+    all_user_input.append(user_input)
+    number_of_items = number_of_items + 1
 
-#     if user_input == "DONE":
-#         break
+print("Your shopping cart currently has the following " + str(number_of_items) + " items: ")
+print(*all_user_input, sep= ",")
 
-# print(all_user_input)
 
+
+# now = datetime.datetime.now()
+
+# print(now)
+
+# print("First element: ")
+# print(all_user_input[0])
 
 counter = 0
 
 running_total = 0
 
-selected_id = 1
+price = 0
 
-while counter < 5:
+#all_user_input[0]
 
-    matching_product = [p for p in products if p["id"] == selected_id]
+while counter < len(all_user_input):
 
-    product = matching_product[0]
-    price = product["price"]
+    # print(all_user_input[2])
 
-    price = running_total + price
+    selected_id = 0
+    
+    print(all_user_input[0 + counter])
+    
+    selected_id = all_user_input[0 + counter]
+
+    print(selected_id)
+    
     counter = counter + 1
+    # print("The selected ID is: ")
+    # print(selected_id)
 
-print(price)
+    # matching_product = [p for p in products if p["id"] == selected_id]
+
+    # matching_product = [p for p in products if p["id"] == selected_id]
+
+    # print(matching_product)
+
+    # print(matching_product[0]["price"])
+    # price = matching_product[0]["price"]
+
+    # price = running_total + price
+    # counter = counter + 1
+
+    # print(price)
+
+#     product = matching_product["name"]
+
+#     print(product)
+
+#     price = product["price"]
+
+#     price = running_total + price
+      
+# print(price)
 
 # calculate tax, add tax + total 
 
