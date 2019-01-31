@@ -72,21 +72,46 @@ running_total = 0
 
 price = 0
 
+selected_id = 0
+
 #all_user_input[0]
 
 while counter < len(all_user_input):
 
     # print(all_user_input[2])
 
-    selected_id = 0
-    
-    print(all_user_input[0 + counter])
-    
-    selected_id = all_user_input[0 + counter]
+    selected_id = int(all_user_input[counter])
+    # print("The selected ID is: ")    
+    # print(selected_id)
 
-    print(selected_id)
-    
+    product = products[selected_id]["name"]
+
+    price = products[selected_id]["price"]
+ 
+    print(" + " + str(product) + " $" + str(price))
+
+    running_total = price + running_total
+
     counter = counter + 1
+
+print("The total amount is: ")
+print(" $" + str(running_total))
+
+
+    # selected_id = 1
+
+    # matching_product = [p for p in products if p["id"] == selected_id]
+
+    # product = matching_product[0]
+    # print(product)
+
+    # price = product["price"]
+
+    # print("The matching product is: ") 
+
+    # print(selected_id)
+    
+    # counter = counter + 1
     # print("The selected ID is: ")
     # print(selected_id)
 
