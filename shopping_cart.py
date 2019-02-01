@@ -27,22 +27,20 @@ products = [
 
 # TODO: write some Python code here to produce the desired functionality...
 
-
 #Checkpoint I
-#All needed variables
 
-#a list variable that stores all user inputs
+# declare variables
 all_user_input = []
-
-#an integer variable that stores each individual input for appending purpose
 user_input = 0
-
-#counts how many items the customer purchases
 number_of_items = 0
-
-#import datetime module
 now = datetime.datetime.now()
-
+counter = 0
+running_total = 0.0
+matching_price = 0
+selected_id = 0
+tax_rate = 0.06
+total_amount = 0
+separator = "--------------------------------------"
 
 # an infinite loop! you can press control+c to cancel the program if/when it gets stuck...
 while user_input != "DONE":
@@ -50,8 +48,6 @@ while user_input != "DONE":
     # capturing user input and storing in a variable
     # demonstrating ability to recognize what the input was, although you might also want to check its datatype
     user_input = input("Please enter a product identifier between 1 and 20, or 'DONE' if there are no more items: ")
-
-    # print("YOUR INPUT WAS: " + user_input)
 
     if user_input == "DONE":
         break
@@ -61,28 +57,19 @@ while user_input != "DONE":
     number_of_items = number_of_items + 1
 
 print("\n\nWelcome to Wen's Groceries, INC!\n")
-print("--------------------------------------")
+print(separator)
 
 print("Phone  : 347-828-4269    " + "Fax: 347-828-4268")
 print("Address: 3700 O St NW, Washington DC 20057")
 print("Web    : www.wensgroceries.com")
-print("--------------------------------------")
+print(separator)
 print("Checkout time: " + str(now.strftime("%Y-%m-%d %H:%M:%S"))) 
 print("Your shopping cart has following " + str(number_of_items)+" items: ") 
-
 print(*all_user_input, sep= ",")
-print("--------------------------------------")
-print("--------------------------------------\n")
-
+print(separator)
+print(separator + "\n")
 
 #Checkpoint II
-
-#All needed variables
-counter = 0
-running_total = 0
-price = 0
-selected_id = 0
-tax_rate = 0.06
 
 while counter < len(all_user_input):
 
@@ -92,28 +79,23 @@ while counter < len(all_user_input):
     matching_product = [p for p in products if p["id"] == selected_id]
     
     product = matching_product[0]["name"]
-    price = matching_product[0]["price"]
+    matching_price = matching_product[0]["price"]
 
-    print(" + " + str(product) + " $" + str(price))
-    running_total = price + running_total
+    print(" + " + str(product) + " $" + str(matching_price) + "\n")
+    running_total = matching_price + running_total
     counter = counter + 1
 
-#Another approach
-    # selected_id = int(all_user_input[counter])
-    # product = products[selected_id]["name"]
-    # price = products[selected_id]["price"]
-    # print(" + " + str(product) + " $" + str(price))
-    # running_total = price + running_total
-    # counter = counter + 1
+total_amount = (running_total) * ( 1 + tax_rate)
 
-total_amount = round((running_total) * ( 1 + tax_rate),2)
+formated_running_total = "${0:.2f}".format(running_total)
+formated_total_amount = "${0:.2f}".format(total_amount)
+tax_amount = "${0:.2f}".format(running_total * tax_rate)
 
 #Checkpoint III
-
-print("\n--------------------------------------")
-print("--------------------------------------")
-print("Subtotal: " + " $" + str(running_total))
-print("Plus D.C. Tax: 6%")
-print("Total Amout Due: $" + str(total_amount))
+print(separator)
+print(separator)
+print("Subtotal: " + formated_running_total.rjust(25))
+print("Plus D.C. Tax 6%:" + tax_amount.rjust(18))
+print("Total Amout Due: " + formated_total_amount.rjust(18))
 print("\nThank you for being our loyal customer. Your business is appreciated.")
 
