@@ -27,134 +27,93 @@ products = [
 
 # TODO: write some Python code here to produce the desired functionality...
 
-# print(products)
 
-# user_input = input("Please enter an identifier number, or DONE if you finish.")
+#Checkpoint I
+#All needed variables
 
-# print(input)
-
+#a list variable that stores all user inputs
 all_user_input = []
+
+#an integer variable that stores each individual input for appending purpose
 user_input = 0
+
+#counts how many items the customer purchases
 number_of_items = 0
+
+#import datetime module
 now = datetime.datetime.now()
 
-# user_input = input("Please input a product identifier, or 'DONE' if there are no more items: ")
-# print("YOUR INPUT WAS: " + user_input)
-# all_user_input.append(user_input)
 
 # an infinite loop! you can press control+c to cancel the program if/when it gets stuck...
 while user_input != "DONE":
 
     # capturing user input and storing in a variable
     # demonstrating ability to recognize what the input was, although you might also want to check its datatype
-    user_input = input("Please input a product identifier, or 'DONE' if there are no more items: ")
+    user_input = input("Please enter a product identifier between 1 and 20, or 'DONE' if there are no more items: ")
+
     # print("YOUR INPUT WAS: " + user_input)
 
     if user_input == "DONE":
         break
     
+    #append user input into a list
     all_user_input.append(user_input)
     number_of_items = number_of_items + 1
 
-print("--------------------------------------")
-print("Welcome to Wen's Groceries, INC!")
+print("\n\nWelcome to Wen's Groceries, INC!\n")
 print("--------------------------------------")
 
 print("Phone  : 347-828-4269    " + "Fax: 347-828-4268")
 print("Address: 3700 O St NW, Washington DC 20057")
 print("Web    : www.wensgroceries.com")
 print("--------------------------------------")
-print("Checkout time: " + str(now)) 
+print("Checkout time: " + str(now.strftime("%Y-%m-%d %H:%M:%S"))) 
 print("Your shopping cart has following " + str(number_of_items)+" items: ") 
 
 print(*all_user_input, sep= ",")
 print("--------------------------------------")
-print("--------------------------------------")
+print("--------------------------------------\n")
 
 
-# now = datetime.datetime.now()
+#Checkpoint II
 
-# print(now)
-
-# print("First element: ")
-# print(all_user_input[0])
-
+#All needed variables
 counter = 0
 running_total = 0
 price = 0
 selected_id = 0
 tax_rate = 0.06
 
-
-#all_user_input[0]
-
 while counter < len(all_user_input):
 
-    # print(all_user_input[2])
+#using list apprehension to look up the item/price
 
     selected_id = int(all_user_input[counter])
-    # print("The selected ID is: ")    
-    # print(selected_id)
+    matching_product = [p for p in products if p["id"] == selected_id]
+    
+    product = matching_product[0]["name"]
+    price = matching_product[0]["price"]
 
-    product = products[selected_id]["name"]
-
-    price = products[selected_id]["price"]
- 
     print(" + " + str(product) + " $" + str(price))
-
     running_total = price + running_total
-
     counter = counter + 1
 
+#Another approach
+    # selected_id = int(all_user_input[counter])
+    # product = products[selected_id]["name"]
+    # price = products[selected_id]["price"]
+    # print(" + " + str(product) + " $" + str(price))
+    # running_total = price + running_total
+    # counter = counter + 1
+
 total_amount = round((running_total) * ( 1 + tax_rate),2)
-print("--------------------------------------")
+
+#Checkpoint III
+
+print("\n--------------------------------------")
 print("--------------------------------------")
 print("Subtotal: " + " $" + str(running_total))
-print("Plus D.C. Tax 6% ")
+print("Plus D.C. Tax: 6%")
 print("Total Amout Due: $" + str(total_amount))
-
-    # selected_id = 1
-
-    # matching_product = [p for p in products if p["id"] == selected_id]
-
-    # product = matching_product[0]
-    # print(product)
-
-    # price = product["price"]
-
-    # print("The matching product is: ") 
-
-    # print(selected_id)
-    
-    # counter = counter + 1
-    # print("The selected ID is: ")
-    # print(selected_id)
-
-    # matching_product = [p for p in products if p["id"] == selected_id]
-
-    # matching_product = [p for p in products if p["id"] == selected_id]
-
-    # print(matching_product)
-
-    # print(matching_product[0]["price"])
-    # price = matching_product[0]["price"]
-
-    # price = running_total + price
-    # counter = counter + 1
-
-    # print(price)
-
-#     product = matching_product["name"]
-
-#     print(product)
-
-#     price = product["price"]
-
-#     price = running_total + price
-      
-# print(price)
-
-# calculate tax, add tax + total 
-
-
+print("\nThank you for being our loyal customer. Your business is appreciated.")
 
