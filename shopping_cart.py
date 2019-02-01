@@ -36,6 +36,8 @@ products = [
 all_user_input = []
 user_input = 0
 number_of_items = 0
+now = datetime.datetime.now()
+
 # user_input = input("Please input a product identifier, or 'DONE' if there are no more items: ")
 # print("YOUR INPUT WAS: " + user_input)
 # all_user_input.append(user_input)
@@ -46,17 +48,28 @@ while user_input != "DONE":
     # capturing user input and storing in a variable
     # demonstrating ability to recognize what the input was, although you might also want to check its datatype
     user_input = input("Please input a product identifier, or 'DONE' if there are no more items: ")
-    print("YOUR INPUT WAS: " + user_input)
-    
+    # print("YOUR INPUT WAS: " + user_input)
+
     if user_input == "DONE":
         break
     
     all_user_input.append(user_input)
     number_of_items = number_of_items + 1
 
-print("Your shopping cart currently has the following " + str(number_of_items) + " items: ")
-print(*all_user_input, sep= ",")
+print("--------------------------------------")
+print("Welcome to Wen's Groceries, INC!")
+print("--------------------------------------")
 
+print("Phone  : 347-828-4269    " + "Fax: 347-828-4268")
+print("Address: 3700 O St NW, Washington DC 20057")
+print("Web    : www.wensgroceries.com")
+print("--------------------------------------")
+print("Checkout time: " + str(now)) 
+print("Your shopping cart has following " + str(number_of_items)+" items: ") 
+
+print(*all_user_input, sep= ",")
+print("--------------------------------------")
+print("--------------------------------------")
 
 
 # now = datetime.datetime.now()
@@ -67,12 +80,11 @@ print(*all_user_input, sep= ",")
 # print(all_user_input[0])
 
 counter = 0
-
 running_total = 0
-
 price = 0
-
 selected_id = 0
+tax_rate = 0.06
+
 
 #all_user_input[0]
 
@@ -94,9 +106,12 @@ while counter < len(all_user_input):
 
     counter = counter + 1
 
-print("The total amount is: ")
-print(" $" + str(running_total))
-
+total_amount = round((running_total) * ( 1 + tax_rate),2)
+print("--------------------------------------")
+print("--------------------------------------")
+print("Subtotal: " + " $" + str(running_total))
+print("Plus D.C. Tax 6% ")
+print("Total Amout Due: $" + str(total_amount))
 
     # selected_id = 1
 
