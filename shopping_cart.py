@@ -2,7 +2,6 @@
 
 import datetime 
 
-
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -29,84 +28,69 @@ products = [
 # TODO: write some Python code here to produce the desired functionality...
 
 #Checkpoint I
-
-# declare variables
+#declare variables
 all_user_input = []
 user_input = 0
 number_of_items = 0
 now = datetime.datetime.now()
 counter = 0
 running_total = 0.0
-matching_price = 0
+matching_price = 0.0
 selected_id = 0
 tax_rate = 0.06
-total_amount = 0
-
-
-
+total_amount = 0.0
 separator = "--------------------------------------"
 
-# an infinite loop! you can press control+c to cancel the program if/when it gets stuck...
 while True:
-
+    
     datatype_pass = True
     range_pass = True
-    # capturing user input and storing in a variable
-    # demonstrating ability to recognize what the input was, although you might also want to check its datatype
     user_input = input("Please enter a product identifier between 1 and 20, or 'DONE' if there are no more items: ")
-            
     if user_input == "DONE":    
         break
 
+    #Input validation
     if not user_input.isdigit():
-        print("Come on! You need to enter an integer!")
+        print("INPUT DATA TYPE ERROR! Please only enter an integer!")
         datatype_pass = False
     if datatype_pass == True:
-        print(int(user_input))
         if int(user_input) not in range(1,21):
-            print("Come on! You need an integer greater than 0 and less than 21!")
+            print("INPUT RANGE ERROR! Please enter an integer greater than 0 and less than 21!")
             range_pass = False
-            print(range_pass)
         if range_pass ==True:    
             all_user_input.append(user_input)
             number_of_items = number_of_items + 1
 
 print("\n\nWelcome to Wen's Groceries, INC!\n")
 print(separator)
-
-print("Phone  : 347-828-4269    " + "Fax: 347-828-4268")
+print("Phone  : 347-828-4269  " + "Fax: 347-828-4268")
 print("Address: 3700 O St NW, Washington DC 20057")
 print("Web    : www.wensgroceries.com")
 print(separator)
-print("Checkout time: " + str(now.strftime("%Y-%m-%d %H:%M:%S"))) 
+print("Checkout Time: " + str(now.strftime("%Y-%m-%d %H:%M:%S"))) 
 print("Your shopping cart has following " + str(number_of_items)+" items: ") 
-print(*all_user_input, sep= ",")
+#print(*all_user_input, sep= ",")
 print(separator)
 print(separator + "\n")
 
 #Checkpoint II
-
 while counter < len(all_user_input):
 
-#using list apprehension to look up the item/price
-
+    #using list apprehension to look up the item/price
     selected_id = int(all_user_input[counter])
     matching_product = [p for p in products if p["id"] == selected_id]
-    
     product = matching_product[0]["name"]
     matching_price = matching_product[0]["price"]
-
     print(" + " + str(product) + " $" + str(matching_price) + "\n")
     running_total = matching_price + running_total
     counter = counter + 1
 
 total_amount = (running_total) * ( 1 + tax_rate)
-
 formated_running_total = "${0:.2f}".format(running_total)
 formated_total_amount = "${0:.2f}".format(total_amount)
 tax_amount = "${0:.2f}".format(running_total * tax_rate)
 
-#Checkpoint III
+#Checkpoint III 
 print(separator)
 print(separator)
 print("Subtotal: " + formated_running_total.rjust(25))
