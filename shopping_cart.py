@@ -2,6 +2,7 @@
 
 import datetime 
 
+
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -40,21 +41,33 @@ matching_price = 0
 selected_id = 0
 tax_rate = 0.06
 total_amount = 0
+
+
+
 separator = "--------------------------------------"
 
 # an infinite loop! you can press control+c to cancel the program if/when it gets stuck...
-while user_input != "DONE":
+while True:
 
+    datatype_pass = True
+    range_pass = True
     # capturing user input and storing in a variable
     # demonstrating ability to recognize what the input was, although you might also want to check its datatype
     user_input = input("Please enter a product identifier between 1 and 20, or 'DONE' if there are no more items: ")
-
-    if user_input == "DONE":
+            
+    if user_input == "DONE":    
         break
-    
-    #append user input into a list
-    all_user_input.append(user_input)
-    number_of_items = number_of_items + 1
+
+    if not user_input.isdigit():
+        print("Come on! You need to enter an integer!")
+        datatype_pass = False
+        if datatype_pass == True:
+            if not (int(user_input) > 0 and int(user_input) < 21):
+                print("Come on! You need an integer greater than 0 and less than 21!")
+                range_pass == False
+                if range_pass ==True:    
+                    all_user_input.append(user_input)
+                    number_of_items = number_of_items + 1
 
 print("\n\nWelcome to Wen's Groceries, INC!\n")
 print(separator)
