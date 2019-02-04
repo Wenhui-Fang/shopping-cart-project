@@ -61,13 +61,15 @@ while True:
     if not user_input.isdigit():
         print("Come on! You need to enter an integer!")
         datatype_pass = False
-        if datatype_pass == True:
-            if not (int(user_input) > 0 and int(user_input) < 21):
-                print("Come on! You need an integer greater than 0 and less than 21!")
-                range_pass == False
-                if range_pass ==True:    
-                    all_user_input.append(user_input)
-                    number_of_items = number_of_items + 1
+    if datatype_pass == True:
+        print(int(user_input))
+        if int(user_input) not in range(1,21):
+            print("Come on! You need an integer greater than 0 and less than 21!")
+            range_pass = False
+            print(range_pass)
+        if range_pass ==True:    
+            all_user_input.append(user_input)
+            number_of_items = number_of_items + 1
 
 print("\n\nWelcome to Wen's Groceries, INC!\n")
 print(separator)
