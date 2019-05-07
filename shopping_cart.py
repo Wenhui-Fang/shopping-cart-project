@@ -6,25 +6,8 @@ import csv
 def to_usd(i):
     return "$ " + i
 
-def test_to_usd():
+def test_to_usd(i):
     return "$ " + i
-    
-# TODO: Read from a CSV file
-# C:\Users\13478\Documents\GitHub>cd shopping-cart-project
-
-# csv_file_path = "products.csv"
-
-# products = []
-
-# with open(csv_file_path,"r") as f:
-#     contents = csv.DictReader(f)
-#     for row in contents: 
-#         # print(row["name"])
-#         # d = dict(row)
-#         # print(d["name",d["price"]])
-#         d = {"id":row["id"], "name":row["name"],"price":float(row["price"])}
-#         products.append(d)
-
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -49,20 +32,15 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
-# TODO: write some Python code here to produce the desired functionality...
-
 #Checkpoint I
 #declare variables
 all_user_input = []
-user_input = 0
 number_of_items = 0
 now = datetime.datetime.now()
 counter = 0
 running_total = 0.0
 matching_price = 0.0
-selected_id = 0
 tax_rate = 0.06
-total_amount = 0.0
 separator = "--------------------------------------"
 
 while True:
