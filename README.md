@@ -11,6 +11,10 @@ Python 3.x
 
 Clone or download from GitHub source, then navigate into the project repository:
 
+``` py
+cd shopping-cart-project
+```
+
 # Usage
 
 Run the shopping cart script:
