@@ -9,6 +9,12 @@ def to_usd(i):
 def test_to_usd(i):
     return "$ " + i
 
+def human_friendly_timestamp():
+    return 
+
+def test_human_friendly_timestamp():
+    return 
+
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
