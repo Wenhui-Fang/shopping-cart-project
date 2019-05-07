@@ -4,7 +4,7 @@ import datetime
 import csv
 
 def to_usd(i):
-    return "$ " + i
+    return "${0:,.2f}".format(i)
 
 def test_to_usd(i):
     return "$ " + i
