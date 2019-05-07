@@ -3,7 +3,12 @@
 import datetime 
 import csv
 
+def to_usd(i):
+    return "$ " + i
 
+def test_to_usd():
+    return "$ " + i
+    
 # TODO: Read from a CSV file
 # C:\Users\13478\Documents\GitHub>cd shopping-cart-project
 
