@@ -5,11 +5,11 @@ import datetime
 def test_to_usd():
     assert to_usd(8.88) == "$8.88"
 
-# def test_human_friendly_timestamp(now):
-#     yyyy = datetime.datetime.year
-#     mm =datetime.datetime.month
-#     dd = datetime.datetime.date
-#     hh = datetime.datetime.hour
-#     mm = datetime.datetime.minute
-#     now = now()
-#     assert human_friendly_timestamp(now) == yyyy+"-"+ mm + "-" + dd + " " + hh + ":" + mm
+# def test_human_friendly_timestamp():
+#     datetime.datetime.now()
+#     yyyy = datetime.date.today().year
+#     mm = datetime.date.today().month
+#     dd = datetime.date.today().date
+#     hm = datetime.datetime.strftime('%H:%M')
+#     breakpoint()
+#     assert human_friendly_timestamp(now) == str(yyyy) +"-"+ str(mm) + "-" + str(dd) + " " + str(hh) + ":" + str(mm)

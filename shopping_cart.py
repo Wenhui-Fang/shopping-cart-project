@@ -92,9 +92,9 @@ if __name__ == "__main__":
         counter = counter + 1
 
     total_amount = (running_total) * ( 1 + tax_rate)
-    formated_running_total = "${0:.2f}".format(running_total)
-    formated_total_amount = "${0:.2f}".format(total_amount)
-    tax_amount = "${0:.2f}".format(running_total * tax_rate)
+    formated_running_total = to_usd(running_total)
+    formated_total_amount = to_usd(total_amount)
+    tax_amount = to_usd(running_total * tax_rate)
 
     #Checkpoint III 
     print(separator)
