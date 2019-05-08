@@ -6,14 +6,8 @@ import csv
 def to_usd(i):
     return "${0:,.2f}".format(i)
 
-def test_to_usd(i):
-    return "$ " + i
-
-def human_friendly_timestamp():
-    return 
-
-def test_human_friendly_timestamp():
-    return 
+def human_friendly_timestamp(now):
+    return str(now.strftime("%Y-%m-%d %H:%M:%S"))
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -49,60 +43,62 @@ matching_price = 0.0
 tax_rate = 0.06
 separator = "--------------------------------------"
 
-while True:
-    
-    datatype_pass = True
-    range_pass = True
-    user_input = input("Please enter a product identifier between 1 and 20, or 'DONE' if there are no more items: ")
-    if user_input == "DONE":    
-        break
+if __name__ == "__main__":
 
-    #Input validation
-    if not user_input.isdigit():
-        print("INPUT DATA TYPE ERROR! Please only enter an integer!")
-        datatype_pass = False
-    if datatype_pass == True:
-        if int(user_input) not in range(1,21):
-            print("INPUT RANGE ERROR! Please enter an integer greater than 0 and less than 21!")
-            range_pass = False
-        if range_pass ==True:    
-            all_user_input.append(user_input)
-            number_of_items = number_of_items + 1
+    while True:
+        
+        datatype_pass = True
+        range_pass = True
+        user_input = input("Please enter a product identifier between 1 and 20, or 'DONE' if there are no more items: ")
+        if user_input == "DONE":    
+            break
 
-print("\n\nWelcome to Wen's Groceries, INC!\n")
-print(separator)
-print("Phone  : 347-828-4269  " + "Fax: 347-828-4268")
-print("Address: 3700 O St NW, Washington DC 20057")
-print("Web    : www.wensgroceries.com")
-print(separator)
-print("Checkout Time: " + str(now.strftime("%Y-%m-%d %H:%M:%S"))) 
-print("Your shopping cart has following " + str(number_of_items)+" items: ") 
-#print(*all_user_input, sep= ",")
-print(separator)
-print(separator + "\n")
+        #Input validation
+        if not user_input.isdigit():
+            print("INPUT DATA TYPE ERROR! Please only enter an integer!")
+            datatype_pass = False
+        if datatype_pass == True:
+            if int(user_input) not in range(1,21):
+                print("INPUT RANGE ERROR! Please enter an integer greater than 0 and less than 21!")
+                range_pass = False
+            if range_pass ==True:    
+                all_user_input.append(user_input)
+                number_of_items = number_of_items + 1
 
-#Checkpoint II
-while counter < len(all_user_input):
+    print("\n\nWelcome to Wen's Groceries, INC!\n")
+    print(separator)
+    print("Phone  : 347-828-4269  " + "Fax: 347-828-4268")
+    print("Address: 3700 O St NW, Washington DC 20057")
+    print("Web    : www.wensgroceries.com")
+    print(separator)
+    print("Checkout Time: " + str(now.strftime("%Y-%m-%d %H:%M:%S"))) 
+    print("Your shopping cart has following " + str(number_of_items)+" items: ") 
+    #print(*all_user_input, sep= ",")
+    print(separator)
+    print(separator + "\n")
 
-    #using list apprehension to look up the item/price
-    selected_id = int(all_user_input[counter])
-    matching_product = [p for p in products if p["id"] == selected_id]
-    product = matching_product[0]["name"]
-    matching_price = matching_product[0]["price"]
-    print(" + " + str(product) + " $" + str(matching_price) + "\n")
-    running_total = matching_price + running_total
-    counter = counter + 1
+    #Checkpoint II
+    while counter < len(all_user_input):
 
-total_amount = (running_total) * ( 1 + tax_rate)
-formated_running_total = "${0:.2f}".format(running_total)
-formated_total_amount = "${0:.2f}".format(total_amount)
-tax_amount = "${0:.2f}".format(running_total * tax_rate)
+        #using list apprehension to look up the item/price
+        selected_id = int(all_user_input[counter])
+        matching_product = [p for p in products if p["id"] == selected_id]
+        product = matching_product[0]["name"]
+        matching_price = matching_product[0]["price"]
+        print(" + " + str(product) + " $" + str(matching_price) + "\n")
+        running_total = matching_price + running_total
+        counter = counter + 1
 
-#Checkpoint III 
-print(separator)
-print(separator)
-print("Subtotal: " + formated_running_total.rjust(25))
-print("Plus D.C. Tax 6%:" + tax_amount.rjust(18))
-print("Total Amout Due: " + formated_total_amount.rjust(18))
-print("\nThank you for being our loyal customer. Your business is appreciated.")
+    total_amount = (running_total) * ( 1 + tax_rate)
+    formated_running_total = "${0:.2f}".format(running_total)
+    formated_total_amount = "${0:.2f}".format(total_amount)
+    tax_amount = "${0:.2f}".format(running_total * tax_rate)
+
+    #Checkpoint III 
+    print(separator)
+    print(separator)
+    print("Subtotal: " + formated_running_total.rjust(25))
+    print("Plus D.C. Tax 6%:" + tax_amount.rjust(18))
+    print("Total Amout Due: " + formated_total_amount.rjust(18))
+    print("\nThank you for being our loyal customer. Your business is appreciated.")
 
