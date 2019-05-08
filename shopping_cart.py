@@ -43,6 +43,8 @@ matching_price = 0.0
 tax_rate = 0.06
 separator = "--------------------------------------"
 
+# breakpoint()
+
 if __name__ == "__main__":
 
     while True:
@@ -71,7 +73,7 @@ if __name__ == "__main__":
     print("Address: 3700 O St NW, Washington DC 20057")
     print("Web    : www.wensgroceries.com")
     print(separator)
-    print("Checkout Time: " + str(now.strftime("%Y-%m-%d %H:%M:%S"))) 
+    print("Checkout Time: " + human_friendly_timestamp(now)) 
     print("Your shopping cart has following " + str(number_of_items)+" items: ") 
     #print(*all_user_input, sep= ",")
     print(separator)
