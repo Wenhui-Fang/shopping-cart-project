@@ -1,5 +1,3 @@
-# shopping_cart.py
-
 import datetime 
 import csv
 
@@ -8,6 +6,11 @@ def to_usd(i):
 
 def human_friendly_timestamp(now):
     return str(now.strftime("%Y-%m-%d %H:%M:%S"))
+
+def find_product(product_id, all_products):
+    matching_products = [p for p in all_products if str(p["id"]) == str(product_id)]
+    matching_product = matching_products[0]
+    return matching_product
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -37,7 +40,6 @@ products = [
 all_user_input = []
 number_of_items = 0
 now = datetime.datetime.now()
-counter = 0
 running_total = 0.0
 matching_price = 0.0
 tax_rate = 0.06
@@ -48,7 +50,7 @@ separator = "--------------------------------------"
 if __name__ == "__main__":
 
     while True:
-        
+
         datatype_pass = True
         range_pass = True
         user_input = input("Please enter a product identifier between 1 and 20, or 'DONE' if there are no more items: ")
@@ -75,21 +77,15 @@ if __name__ == "__main__":
     print(separator)
     print("Checkout Time: " + human_friendly_timestamp(now)) 
     print("Your shopping cart has following " + str(number_of_items)+" items: ") 
-    #print(*all_user_input, sep= ",")
     print(separator)
     print(separator + "\n")
 
     #Checkpoint II
-    while counter < len(all_user_input):
-
-        #using list apprehension to look up the item/price
-        selected_id = int(all_user_input[counter])
-        matching_product = [p for p in products if p["id"] == selected_id]
-        product = matching_product[0]["name"]
-        matching_price = matching_product[0]["price"]
-        print(" + " + str(product) + " $" + str(matching_price) + "\n")
+    for input_id in all_user_input: 
+        matching_product = find_product(input_id,products)
+        matching_price = matching_product["price"]
+        print(" + " + matching_product["name"] + " $" + str(matching_price) + "\n")
         running_total = matching_price + running_total
-        counter = counter + 1
 
     total_amount = (running_total) * ( 1 + tax_rate)
     formated_running_total = to_usd(running_total)
