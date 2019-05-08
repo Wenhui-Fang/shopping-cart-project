@@ -1,7 +1,5 @@
 # shopping-cart-project
-OPIM 241 shopping-cart-project
-
-Original project description:
+Description: This project is an assignment for OPIM 241, a intro to python class at the McDonough School of Business at Georgetown University.See the link below for the original project description:
 https://github.com/windy030/georgetown-opim-243-201901/blob/master/projects/shopping-cart.md
 
 # Prerequisites
