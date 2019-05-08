@@ -5,7 +5,6 @@ https://github.com/windy030/georgetown-opim-243-201901/blob/master/projects/shop
 # Prerequisites
 Python 3.x  
 Anaconda   
-pip  
 
 # installation
 
