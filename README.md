@@ -3,9 +3,9 @@ Description: This project is an assignment for OPIM 241, a intro to python class
 https://github.com/windy030/georgetown-opim-243-201901/blob/master/projects/shopping-cart.md
 
 # Prerequisites
-Python 3.x
-Anaconda 
-pip
+Python 3.x  
+Anaconda   
+pip  
 
 # installation
 
