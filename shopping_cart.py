@@ -79,7 +79,7 @@ if __name__ == "__main__":
     print("Your shopping cart has following " + str(number_of_items)+" items: ") 
     print(separator)
     print(separator + "\n")
-
+    
     #Checkpoint II
     for input_id in all_user_input: 
         matching_product = find_product(input_id,products)
