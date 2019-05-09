@@ -1,6 +1,4 @@
-from shopping_cart import to_usd
-from shopping_cart import human_friendly_timestamp
-from shopping_cart import find_product
+from shopping_cart import to_usd,human_friendly_timestamp,find_product
 import datetime
 
 def test_to_usd():

@@ -45,8 +45,6 @@ matching_price = 0.0
 tax_rate = 0.06
 separator = "--------------------------------------"
 
-# breakpoint()
-
 if __name__ == "__main__":
 
     while True:
